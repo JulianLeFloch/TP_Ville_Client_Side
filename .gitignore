@@ -124,3 +124,6 @@ buildNumber.properties
 *.wat
 *.xhtml
 /build/
+
+### Sonar ###
+sonar-project.properties
