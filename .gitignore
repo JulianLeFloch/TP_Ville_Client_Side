@@ -123,3 +123,4 @@ buildNumber.properties
 *.wasm
 *.wat
 *.xhtml
+/build/
