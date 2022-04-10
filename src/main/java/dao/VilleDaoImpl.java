@@ -1,5 +1,5 @@
 package dao;
 
-public class VilleDaoImpl {
+public class VilleDaoImpl implements VilleDao {
 
 }
