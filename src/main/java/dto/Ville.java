@@ -1,56 +1,68 @@
 package dto;
 
 public class Ville {
-	
+	String codeCommuneInsee;
+	String nomCommune;
 	String codePostal;
-	String nom;
-	String codeCommune;
-	String libelle;
-	String ligne;
-	String longitude;
+	String libelleAcheminement;
+	String ligne5;
 	String latitude;
-	
+	String longitude;
+
+	public String getCodeCommuneInsee() {
+		return codeCommuneInsee;
+	}
+
+	public void setCodeCommuneInsee(String codeCommune) {
+		codeCommuneInsee = codeCommune;
+	}
+
+	public String getNomCommune() {
+		return nomCommune;
+	}
+
+	public void setNomCommune(String nom) {
+		nomCommune = nom;
+	}
+
 	public String getCodePostal() {
 		return codePostal;
 	}
-	public void setCodePostal(String codePostal) {
-		this.codePostal = codePostal;
+
+	public void setCodePostal(String codePostalCommune) {
+		codePostal = codePostalCommune;
 	}
-	public String getNom() {
-		return nom;
+
+	public String getLibelleAcheminement() {
+		return libelleAcheminement;
 	}
-	public void setNom(String nomCommune) {
-		this.nom = nomCommune;
+
+	public void setLibelleAcheminement(String acheminement) {
+		libelleAcheminement = acheminement;
 	}
-	public String getCodeCommune() {
-		return codeCommune;
+
+	public String getLigne5() {
+		return ligne5;
 	}
-	public void setCodeCommune(String codeCommune) {
-		this.codeCommune = codeCommune;
+
+	public void setLigne5(String ligne) {
+		ligne5 = ligne;
 	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	public String getLigne() {
-		return ligne;
-	}
-	public void setLigne(String ligne) {
-		this.ligne = ligne;
-	}
-	public String getLongitude() {
-		return longitude;
-	}
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
+
 	public String getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
+
+	public void setLatitude(String latitudeCommune) {
+		latitude = latitudeCommune;
 	}
-	
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitudeCommune) {
+		longitude = longitudeCommune;
+	}
+
 }
