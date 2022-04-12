@@ -17,7 +17,7 @@
 		<div class="navbar-start">
 			<a class="navbar-item" onclick="window.location=this"> Accueil </a> 
 			<a class="navbar-item" onclick="window.location=this">Distance entre deux villes </a> 
-			<a class="navbar-item" onclick="window.location=this">Ajouter une ville</a>
+			<a class="navbar-item" onclick="window.location='http://localhost:8080/TP_Client_Part/ajouterVille'">Ajouter une ville</a>
 			</div>
 		</div>
 </nav>
