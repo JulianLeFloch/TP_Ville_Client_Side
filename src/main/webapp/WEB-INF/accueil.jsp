@@ -108,7 +108,7 @@ footer {
 						"loadingRecords" : "Chargement...",
 						"processing" : "Attente...",
 						"search" : "Rechercher une ville dans la liste :",
-						"zeroRecords" : "Il n'y a malheuresement pas de ville trouvé avec cette recherche...",
+						"zeroRecords" : "Il n'y a malheureusement pas de ville trouvé avec cette recherche...",
 						"paginate" : {
 							"first" : "Première page",
 							"last" : "Page finale",

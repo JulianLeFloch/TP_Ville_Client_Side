@@ -40,7 +40,7 @@ footer {
                             <div class="field">
                                 <label class="label">Code de la commune</label>
                                 <div class="control has-icons-left">
-                                    <input type="number" name="codeCommune" id="codeCommune"  class="input" placeholder="Code commune de la ville" required>
+                                    <input type="text" name="codeCommune" id="codeCommune"  class="input" placeholder="Code commune de la ville" required>
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-barcode"></i>
                                     </span>
@@ -49,7 +49,7 @@ footer {
                             <div class="field">
                                 <label class="label">Code postal</label>
                                 <div class="control has-icons-left">
-                                    <input type="number" class="input" name="codePostal" id="codePostal" placeholder="Code postal de la ville">
+                                    <input type="text" class="input" name="codePostal" id="codePostal" placeholder="Code postal de la ville">
                                     <span class="icon is-small is-left">
                                        <i class="fa fa-envelope"></i>
                                     </span>

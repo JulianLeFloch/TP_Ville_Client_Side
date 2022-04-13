@@ -45,7 +45,7 @@ public class AjouterVille extends HttpServlet {
 		String ligne5 = request.getParameter("ligne5");
 		
 		VilleDaoImpl villeDaoImpl = new VilleDaoImpl();
-		villeDaoImpl.ajouterVille(nom, codeCommune, codePostal, libelle, latitude, longitude, ligne5);
+		villeDaoImpl.ajouterVille(nom, codeCommune, codePostal, ligne5, libelle, longitude, latitude);
 		
 		doGet(request, response);
 	}
