@@ -24,6 +24,16 @@
 		<servlet-name>AjouterVille</servlet-name>
 		<url-pattern>/ajouterVille</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ModifierVille</servlet-name>
+		<servlet-class>servlets.ModifierVille</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ModifierVille</servlet-name>
+		<url-pattern>/modifierVille</url-pattern>
+	</servlet-mapping>
 
 	<jsp-config>
 		<jsp-property-group>

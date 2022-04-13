@@ -33,7 +33,7 @@ public class Accueil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		villes = villeDaoImpl.recupererVilleDeFrance();
+		villes = villeDaoImpl.recupererAllVillesDeFrance();
 		request.setAttribute("villes", villes);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 	}

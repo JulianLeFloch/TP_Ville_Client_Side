@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import dao.VilleDaoImpl;
 
 /**
- * Servlet implementation class AjouterVille
+ * Servlet implementation class ModifierVille
  */
-@WebServlet("/AjouterVille")
-public class AjouterVille extends HttpServlet {
+@WebServlet("/ModifierVille")
+public class ModifierVille extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AjouterVille() {
+    public ModifierVille() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,9 +27,9 @@ public class AjouterVille extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterVille.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierVille.jsp").forward(request, response);
 	}
 
 	/**
@@ -45,9 +45,10 @@ public class AjouterVille extends HttpServlet {
 		String ligne5 = request.getParameter("ligne5");
 		
 		VilleDaoImpl villeDaoImpl = new VilleDaoImpl();
-		villeDaoImpl.ajouterVille(nom, codeCommune, codePostal, ligne5, libelle, longitude, latitude);
+		villeDaoImpl.modifierVille(nom, codeCommune, codePostal, ligne5, libelle, longitude, latitude);
 		
 		doGet(request, response);	
 	}
+
 
 }

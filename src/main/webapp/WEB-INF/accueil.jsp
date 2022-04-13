@@ -23,7 +23,6 @@
 	src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 <script type="text/javascript" charset="utf8"
 	src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bulma.min.js"></script>
-
 <style>
 ::-webkit-scrollbar {
 	display: none;
@@ -73,13 +72,9 @@ footer {
 						<td><c:out value="${ villes.getLigne5() }"></c:out></td>
 						<td><c:out value="${ villes.getLatitude() }"></c:out></td>
 						<td><c:out value="${ villes.getLongitude() }"></c:out></td>
-						<td><a
-							href="<%=application.getContextPath()%>/Ville=${ villes.getNomCommune() }">Voir
-								les informations</a></td>
-						<td><a
-							href="<%=application.getContextPath()%>/refresh?ville=${ villes.getNomCommune() }">Modifier</a></td>
-						<td><a
-							href="<%=application.getContextPath()%>/bin?ville=${ villes.getNomCommune() }">Supprimer</a></td>
+						<td><input type="button" class="button is-info" value="Informations" onclick="Informations()"></td>
+						<td><input type="button" class="button is-primary" value="Modifier ville" onclick="ModifierVille()"></td>
+						<td><input type="button" class="button is-danger" value="Supprimer ville" onclick="Supprimer()"></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -120,6 +115,7 @@ footer {
 			});
 		</script>
 	</div>
+	<%@include file="animation.jsp"%>
+	<%@include file="footer.jsp"%>
 </body>
-<%@include file="footer.jsp"%>
 </html>

@@ -23,7 +23,7 @@ footer {
           <div class="hero-body">
               <div class="container">
               <p class="Title has-text-centered" style="font-size: 24px">
-				<strong>Ajouter une ville dans la base de données :</strong>
+				<strong>Modifier les informations de la ville choisie :</strong>
 			</p>
                 <div class="columns is-5-tablet is-4-desktop is-3-widescreen">
                     <div class="column">
@@ -97,7 +97,7 @@ footer {
                             </div>
                             <br>
                             <div class="field has-text-centered">
-                                <input class="button is-success" value="Ajouter la ville dans la base de données" type="submit"/>
+                                <input class="button is-success" value="Modifier la ville dans la base de données" type="submit"/>
                             </div>
                         </form>
                     </div>

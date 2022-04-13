@@ -27,7 +27,7 @@ public class VilleDaoImpl implements VilleDao {
 
 
 	@Override
-	public ArrayList<Ville> recupererVilleDeFrance() {
+	public ArrayList<Ville> recupererAllVillesDeFrance() {
 
 		BuilderObject builder = new BuilderObject();
 		JSONArray json;
@@ -42,25 +42,18 @@ public class VilleDaoImpl implements VilleDao {
 			e.printStackTrace();
 			System.out.println("non");
 		}
-
 		for (Ville current : listeVilles) {
 			System.out.println(current.getNomCommune() + "/n");
 		}
-
 		return listeVilles;
 	}
 
 	@Override
 	public void ajouterVille(String nom, String codeCommune, String codePostal, String ligne5,
 			String libelle, String longitude, String latitude){
-		
 		try {
-			   // Http POST Request
-
-			   // create http client object
 			   CloseableHttpClient httpClient = HttpClients.createDefault();
-
-			   // construct JSON body
+			   
 			   String requestBody = "{\n"
 			   		+ "    \"nomCommune\": \""+nom+"\",\n"
 			   		+ "	\"codeCommuneInsee\": \""+codeCommune+"\",\n"
@@ -70,39 +63,57 @@ public class VilleDaoImpl implements VilleDao {
 			   		+ "	\"longitude\": \""+longitude+"\",\n"
 			   		+ "	\"latitude\": \""+latitude+"\"\n"
 			   		+ "	}";
-			   
-			   // convert request body into string entity
 			   System.out.println(requestBody.toString());
-			   
 			   StringEntity stringEntity = new StringEntity(requestBody);
-			   
-			   // create http POST request
 			   HttpPost httpPost = new HttpPost();
-			   
-			   // set request URI ro thr created request object
 			   httpPost.setURI(new URI("http://localhost:8181/Ville_Ajouter"));
 			   httpPost.addHeader("Content-type", "application/json");
-
-			   // set stringEntity to the created post request
 			   httpPost.setEntity(stringEntity);
-
-			   // execute created httpPost request
 			   CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
-
 			   System.out.println("Status Code - " + httpResponse.getStatusLine().toString());
-
 			  } catch (URISyntaxException e) {
-			   // TODO Auto-generated catch block
 			   e.printStackTrace();
 			  } catch (UnsupportedEncodingException e) {
-			   // TODO Auto-generated catch block
 			   e.printStackTrace();
 			  } catch (ClientProtocolException e) {
-			   // TODO Auto-generated catch block
 			   e.printStackTrace();
 			  } catch (IOException e) {
-			   // TODO Auto-generated catch block
 			   e.printStackTrace();
 			  }
+	}
+
+	@Override
+	public void modifierVille(String nom, String codeCommune, String codePostal, String ligne5, String libelle,
+			String longitude, String latitude) throws UnsupportedEncodingException {
+		try {
+			   CloseableHttpClient httpClient = HttpClients.createDefault();
+			   
+			   String requestBody = "{\n"
+			   		+ "    \"nomCommune\": \""+nom+"\",\n"
+			   		+ "	\"codeCommuneInsee\": \""+codeCommune+"\",\n"
+			   		+ "	\"codePostal\": \""+codePostal+"\",\n"
+			   		+ "	\"ligne5\": \""+ligne5+"\",\n"
+			   		+ "	\"libelleAcheminement\": \""+libelle+"\",\n"
+			   		+ "	\"longitude\": \""+longitude+"\",\n"
+			   		+ "	\"latitude\": \""+latitude+"\"\n"
+			   		+ "	}";
+			   System.out.println(requestBody.toString());
+			   StringEntity stringEntity = new StringEntity(requestBody);
+			   HttpPost httpPost = new HttpPost();
+			   httpPost.setURI(new URI("http://localhost:8181/Ville_Ajouter"));
+			   httpPost.addHeader("Content-type", "application/json");
+			   httpPost.setEntity(stringEntity);
+			   CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
+			   System.out.println("Status Code - " + httpResponse.getStatusLine().toString());
+			  } catch (URISyntaxException e) {
+			   e.printStackTrace();
+			  } catch (UnsupportedEncodingException e) {
+			   e.printStackTrace();
+			  } catch (ClientProtocolException e) {
+			   e.printStackTrace();
+			  } catch (IOException e) {
+			   e.printStackTrace();
+			  }
+		
 	}
 }
