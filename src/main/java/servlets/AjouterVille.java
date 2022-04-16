@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.VilleDaoImpl;
+import dto.Ville;
 
 /**
  * Servlet implementation class AjouterVille
@@ -47,7 +48,10 @@ public class AjouterVille extends HttpServlet {
 		VilleDaoImpl villeDaoImpl = new VilleDaoImpl();
 		villeDaoImpl.ajouterVille(nom, codeCommune, codePostal, ligne5, libelle, longitude, latitude);
 		
-		doGet(request, response);	
+		Ville ville =villeDaoImpl.VilleAvecCode(codeCommune);
+		request.setAttribute("ville", ville);
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/villeAjoutee.jsp").forward(request, response);	
 	}
 
 }

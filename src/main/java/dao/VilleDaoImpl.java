@@ -13,6 +13,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -105,7 +106,7 @@ public class VilleDaoImpl implements VilleDao {
 	}
 	
 	@Override
-	public void modifierVille(String nom, String codeCommune, String codePostal, String ligne5, String libelle,
+	public void ModifierVille(String nom, String codeCommune, String codePostal, String ligne5, String libelle,
 			String longitude, String latitude) throws UnsupportedEncodingException {
 		try {
 			   CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -121,11 +122,11 @@ public class VilleDaoImpl implements VilleDao {
 			   		+ "	}";
 			   System.out.println(requestBody.toString());
 			   StringEntity stringEntity = new StringEntity(requestBody);
-			   HttpPost httpPost = new HttpPost();
-			   httpPost.setURI(new URI("http://localhost:8181/Ville_Ajouter"));
-			   httpPost.addHeader("Content-type", "application/json");
-			   httpPost.setEntity(stringEntity);
-			   CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
+			   HttpPut httpPut = new HttpPut();
+			   httpPut.setURI(new URI("http://localhost:8181/Ville_Modifier"));
+			   httpPut.addHeader("Content-type", "application/json");
+			   httpPut.setEntity(stringEntity);
+			   CloseableHttpResponse httpResponse = httpClient.execute(httpPut);
 			   System.out.println("Status Code - " + httpResponse.getStatusLine().toString());
 			  } catch (URISyntaxException e) {
 			   e.printStackTrace();

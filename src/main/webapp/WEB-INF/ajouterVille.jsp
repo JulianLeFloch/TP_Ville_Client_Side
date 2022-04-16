@@ -25,6 +25,7 @@ footer {
               <p class="Title has-text-centered" style="font-size: 24px">
 				<strong>Ajouter une ville dans la base de données :</strong>
 			  </p>
+			  <br>
                 <div class="columns is-5-tablet is-4-desktop is-3-widescreen">
                     <div class="column">
                         <form class="box" method="post" action="ajouterVille">
@@ -59,7 +60,7 @@ footer {
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Libéllé acheminnement</label>
+                                <label class="label">Libéllé acheminement</label>
                                 <div class="control has-icons-left">
                                     <input type="text" name="libelle" id="libelle" class="input" placeholder="Libéllé acheminnement de la ville">
                                     <span class="icon is-small is-left">

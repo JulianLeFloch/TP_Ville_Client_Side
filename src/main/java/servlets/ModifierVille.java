@@ -30,48 +30,38 @@ public class ModifierVille extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String choosenVilleToDel = request.getParameter("ville");
-
-		if (choosenVilleToDel != null) {
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("ChangedVille", choosenVilleToDel);
-
-			Ville ville = villeDaoImpl.VilleAvecCode(choosenVilleToDel);
-
-			request.setAttribute("villeToDel", choosenVilleToDel);
-			request.setAttribute("nom", ville.getNomCommune());
-			request.setAttribute("cc", ville.getCodeCommuneInsee());
-			request.setAttribute("cp", ville.getCodePostal());
-			request.setAttribute("lat", ville.getLatitude());
-			request.setAttribute("lon", ville.getLongitude());
-			request.setAttribute("libelle", ville.getLibelleAcheminement());
-			request.setAttribute("ligne", ville.getLigne5());
-			
-			
-		}
-
+    	String villeModifCode = request.getParameter("codeCommuneInsee");
+		Ville ville =villeDaoImpl.VilleAvecCode(villeModifCode);
+		
+		System.out.println("le parametre est :" + villeModifCode);
+		
+		request.setAttribute("codeCommuneInsee", villeModifCode);
+		request.setAttribute("ville", ville);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierVille.jsp").forward(request, response);
-	}
-
+    }
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String villeToDel = (String)request.getSession().getAttribute("ChangedVille");
 		String nom = request.getParameter("nom");
-		String cc = request.getParameter("cc");
-		String cp = request.getParameter("cp");
-		String lat = request.getParameter("lat");
-		String lon = request.getParameter("lon");
+		String codeCommune = request.getParameter("codeCommune");
+		String codePostal = request.getParameter("codePostal");
 		String libelle = request.getParameter("libelle");
-		String ligne = request.getParameter("ligne");
-
-	
+		String latitude = request.getParameter("latitude");
+		String longitude = request.getParameter("longitude");
+		String ligne5 = request.getParameter("ligne5");
 		
-		System.out.println("QJNFJDGNSGUS9DHGUSHU : *-----" + villeToDel+ "-------" );
-		villeDaoImpl.modifierVille(nom, cc, cp, ligne, libelle,lon, lat);
-		doGet(request, response);
+		Ville villeNonModif =villeDaoImpl.VilleAvecCode(codeCommune);
+		request.setAttribute("villeNonModif", villeNonModif);
+		
+		VilleDaoImpl villeDaoImpl = new VilleDaoImpl();
+		villeDaoImpl.ModifierVille(nom, codeCommune, codePostal, ligne5, libelle, longitude, latitude);
+		
+		Ville villeModif =villeDaoImpl.VilleAvecCode(codeCommune);
+		request.setAttribute("villeModif", villeModif);
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/villeModifiee.jsp").forward(request, response);	
 	}
 
 

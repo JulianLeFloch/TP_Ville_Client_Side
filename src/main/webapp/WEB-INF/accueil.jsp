@@ -73,7 +73,7 @@ footer {
 						<td><c:out value="${ villes.getLatitude() }"></c:out></td>
 						<td><c:out value="${ villes.getLongitude() }"></c:out></td>
 						<td><input type="button" class="button is-info" value="Informations" onclick="Informations()"></td>
-						<td><a href="<%=application.getContextPath()%>/modifierVille?ville=${ villes.getCodeCommuneInsee() }">Modifier</a></td>
+						<td><a href="<%=application.getContextPath()%>/modifierVille?codeCommuneInsee=${ villes.getCodeCommuneInsee() }" onclick="ModifierVille()">Modifier</a></td>
 						<td><a href="<%=application.getContextPath()%>/supprimerVille?codeCommuneInsee=${ villes.getCodeCommuneInsee()}" onclick="SupprimerVille()">Supprimer</a></td>
 						</tr>
 				</c:forEach>

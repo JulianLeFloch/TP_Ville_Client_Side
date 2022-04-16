@@ -23,18 +23,19 @@ footer {
           <div class="hero-body">
               <div class="container">
               <p class="Title has-text-centered" style="font-size: 24px">
-				<strong>Modifier les informations de la ville choisie :</strong>
+				<strong>Modifier les informations de la ville suivante : <c:out value="${ville.getNomCommune() }"></c:out></strong>
 			</p>
+			<br>
                 <div class="columns is-5-tablet is-4-desktop is-3-widescreen">
                     <div class="column">
-                        <form class="box" method="post" action="ajouterVille">
+                        <form class="box" method="post" action="modifierVille">
                             <div class="field has-text-centered">
                                 <img src="https://cdn-icons-png.flaticon.com/512/3157/3157646.png" width="167">
                             </div>
                             <div class="field">
                                 <label class="label">Nom</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" name="nom" id="nom" class="input" placeholder="Nom de la ville" required>
+                                    <input type="text" name="nom" id="nom" class="input" value="<c:out value="${ville.getNomCommune() }"> </c:out>" required>
                                     <span class="icon is-small is-left">
                 						<i class="fa fa-map-pin"></i>
                                     </span>
@@ -43,7 +44,7 @@ footer {
                             <div class="field">
                                 <label class="label">Code de la commune</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" name="codeCommune" id="codeCommune"  class="input" placeholder="Code commune de la ville" required>
+                                    <input type="text" name="codeCommune" id="codeCommune"  class="input" value="<c:out value="${ville.getCodeCommuneInsee() }"> </c:out>">
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-barcode"></i>
                                     </span>
@@ -52,16 +53,16 @@ footer {
                             <div class="field">
                                 <label class="label">Code postal</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" class="input" name="codePostal" id="codePostal" placeholder="Code postal de la ville">
+                                    <input type="text" class="input" name="codePostal" id="codePostal" value="<c:out value="${ville.getCodePostal() }"> </c:out>">
                                     <span class="icon is-small is-left">
                                        <i class="fa fa-envelope"></i>
                                     </span>
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Libéllé acheminnement</label>
+                                <label class="label">Lib�ll� acheminement</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" name="libelle" id="libelle" class="input" placeholder="Libéllé acheminnement de la ville">
+                                    <input type="text" name="libelle" id="libelle" class="input" value="<c:out value="${ville.getLibelleAcheminement() }"> </c:out>">
                                     <span class="icon is-small is-left">
                                        <i class="fa fa-road"></i>
                                     </span>
@@ -70,7 +71,7 @@ footer {
                             <div class="field">
                                 <label class="label">Ligne 5</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" name="ligne5" id="ligne5" class="input" placeholder="Ligne 5 de la ville">
+                                    <input type="text" name="ligne5" id="ligne5" class="input" value="<c:out value="${ville.getLigne5() }"> </c:out>">
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-train"></i>
                                     </span>
@@ -79,7 +80,7 @@ footer {
                             <div class="field">
                                 <label class="label">Longitude</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" name="longitude" id="longitude" class="input" placeholder="Longitude de la ville">
+                                    <input type="text" name="longitude" id="longitude" class="input" value="<c:out value="${ville.getLongitude() }"> </c:out>">
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-globe"></i>
                                     </span>
@@ -89,7 +90,7 @@ footer {
                             <div class="field">
                                 <label class="label">Latitude</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" name="latitude" id="latitude" class="input" placeholder="Latitude de la ville">
+                                    <input type="text" name="latitude" id="latitude" class="input" value="<c:out value="${ville.getLatitude() }"> </c:out>">
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-globe"></i>
                                     </span>
@@ -97,7 +98,7 @@ footer {
                             </div>
                             <br>
                             <div class="field has-text-centered">
-                                <input class="button is-success" value="Modifier la ville dans la base de données" type="submit"/>
+                                <input class="button is-success" value="Valider les modifications" type="submit"/>
                             </div>
                         </form>
                     </div>
