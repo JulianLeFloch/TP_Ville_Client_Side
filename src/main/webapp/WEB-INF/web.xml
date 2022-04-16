@@ -44,6 +44,16 @@
 		<servlet-name>SupprimerVille</servlet-name>
 		<url-pattern>/supprimerVille</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DistanceDeuxVilles</servlet-name>
+		<servlet-class>servlets.DistanceDeuxVilles</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DistanceDeuxVilles</servlet-name>
+		<url-pattern>/calculDistance</url-pattern>
+	</servlet-mapping>
 
 	<jsp-config>
 		<jsp-property-group>

@@ -44,9 +44,9 @@ footer {
 		</div>
 	</section>
 
-	<div style="margin: 0 20px 20px 20px; font-size: 16px">
+	<div style="margin: 0 20px 20px 20px; font-size: 18px">
 		<table id="table_villes"
-			class="table is-bordered is-striped is-narrow is-hoverable "
+			class="table is-bordered is-striped is-narrow is-hoverable"
 			style="width: 100%">
 			<thead>
 				<tr>
@@ -57,9 +57,8 @@ footer {
 					<th>Ligne 5</th>
 					<th>Latitude</th>
 					<th>Longitude</th>
-					<th>Informations</th>
-					<th>Modifier</th>
-					<th>Supprimer</th>
+					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -72,9 +71,8 @@ footer {
 						<td><c:out value="${ villes.getLigne5() }"></c:out></td>
 						<td><c:out value="${ villes.getLatitude() }"></c:out></td>
 						<td><c:out value="${ villes.getLongitude() }"></c:out></td>
-						<td><input type="button" class="button is-info" value="Informations" onclick="Informations()"></td>
-						<td><a href="<%=application.getContextPath()%>/modifierVille?codeCommuneInsee=${ villes.getCodeCommuneInsee() }" onclick="ModifierVille()">Modifier</a></td>
-						<td><a href="<%=application.getContextPath()%>/supprimerVille?codeCommuneInsee=${ villes.getCodeCommuneInsee()}" onclick="SupprimerVille()">Supprimer</a></td>
+						<td><a href="<%=application.getContextPath()%>/modifierVille?codeCommuneInsee=${ villes.getCodeCommuneInsee() }" onclick="ModifierVille()">Modifier ville</a></td>
+						<td><a href="<%=application.getContextPath()%>/supprimerVille?codeCommuneInsee=${ villes.getCodeCommuneInsee()}" onclick="SupprimerVille()">Supprimer ville</a></td>
 						</tr>
 				</c:forEach>
 			</tbody>

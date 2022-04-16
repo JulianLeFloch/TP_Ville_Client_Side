@@ -23,6 +23,9 @@ footer {
 <body>
 	<section class="section has-text-centered">
 			<div class="container">
+			<div class="field has-text-centered">
+                                <img src="https://cdn-icons-png.flaticon.com/512/1177/1177445.png?w=826" width="167">
+                            </div>
 				<p class="Title" style="font-size: 18px">
 					<c:out value="La ville avec le code commune INSEE suivant : ${codeCommuneInsee } a bien été enlevée de la base de données !"></c:out>
 				</p>

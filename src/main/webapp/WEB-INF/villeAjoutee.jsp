@@ -22,6 +22,10 @@ footer {
       <section>
           <div class="hero-body">
               <div class="container">
+              
+              <div class="field has-text-centered">
+                                <img src="https://cdn-icons-png.flaticon.com/512/1177/1177445.png?w=826" width="167">
+                            </div>
               <p class="Title has-text-centered" style="font-size: 24px">
 				<strong>La ville  suivante : <c:out value="${ ville.getNomCommune()}"></c:out></strong>
 			</p>
