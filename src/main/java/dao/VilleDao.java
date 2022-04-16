@@ -12,4 +12,8 @@ public interface VilleDao {
 	void ajouterVille(String nom, String codeCommune, String codePostal, String ligne5, String libelle, String longitude, String latitude)  throws UnsupportedEncodingException;
 
 	void modifierVille(String nom, String codeCommune, String codePostal, String ligne5, String libelle, String longitude, String latitude)  throws UnsupportedEncodingException;
+
+	void SupprimerVille(String code);
+
+	Ville VilleAvecCode(String codeVille);
 }

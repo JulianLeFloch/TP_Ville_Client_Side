@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ajouter une ville</title>
+    <title>Modifier une ville</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <style>
@@ -59,9 +59,9 @@ footer {
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Libéllé acheminnement</label>
+                                <label class="label">LibÃ©llÃ© acheminnement</label>
                                 <div class="control has-icons-left">
-                                    <input type="text" name="libelle" id="libelle" class="input" placeholder="Libéllé acheminnement de la ville">
+                                    <input type="text" name="libelle" id="libelle" class="input" placeholder="LibÃ©llÃ© acheminnement de la ville">
                                     <span class="icon is-small is-left">
                                        <i class="fa fa-road"></i>
                                     </span>
@@ -97,7 +97,7 @@ footer {
                             </div>
                             <br>
                             <div class="field has-text-centered">
-                                <input class="button is-success" value="Modifier la ville dans la base de données" type="submit"/>
+                                <input class="button is-success" value="Modifier la ville dans la base de donnÃ©es" type="submit"/>
                             </div>
                         </form>
                     </div>

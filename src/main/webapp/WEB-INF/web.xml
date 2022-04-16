@@ -34,6 +34,16 @@
 		<servlet-name>ModifierVille</servlet-name>
 		<url-pattern>/modifierVille</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SupprimerVille</servlet-name>
+		<servlet-class>servlets.SupprimerVille</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SupprimerVille</servlet-name>
+		<url-pattern>/supprimerVille</url-pattern>
+	</servlet-mapping>
 
 	<jsp-config>
 		<jsp-property-group>

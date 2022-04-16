@@ -73,9 +73,9 @@ footer {
 						<td><c:out value="${ villes.getLatitude() }"></c:out></td>
 						<td><c:out value="${ villes.getLongitude() }"></c:out></td>
 						<td><input type="button" class="button is-info" value="Informations" onclick="Informations()"></td>
-						<td><input type="button" class="button is-primary" value="Modifier ville" onclick="ModifierVille()"></td>
-						<td><input type="button" class="button is-danger" value="Supprimer ville" onclick="Supprimer()"></td>
-					</tr>
+						<td><a href="<%=application.getContextPath()%>/modifierVille?ville=${ villes.getCodeCommuneInsee() }">Modifier</a></td>
+						<td><a href="<%=application.getContextPath()%>/supprimerVille?codeCommuneInsee=${ villes.getCodeCommuneInsee()}" onclick="SupprimerVille()">Supprimer</a></td>
+						</tr>
 				</c:forEach>
 			</tbody>
 		</table>
@@ -118,4 +118,5 @@ footer {
 	<%@include file="animation.jsp"%>
 	<%@include file="footer.jsp"%>
 </body>
+</html>
 </html>

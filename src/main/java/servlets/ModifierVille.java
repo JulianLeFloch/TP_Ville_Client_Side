@@ -6,8 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.VilleDaoImpl;
+import dto.Ville;
 
 /**
  * Servlet implementation class ModifierVille
@@ -15,7 +17,7 @@ import dao.VilleDaoImpl;
 @WebServlet("/ModifierVille")
 public class ModifierVille extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	VilleDaoImpl villeDaoImpl = new VilleDaoImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,7 +30,27 @@ public class ModifierVille extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+    	String choosenVilleToDel = request.getParameter("ville");
+
+		if (choosenVilleToDel != null) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("ChangedVille", choosenVilleToDel);
+
+			Ville ville = villeDaoImpl.VilleAvecCode(choosenVilleToDel);
+
+			request.setAttribute("villeToDel", choosenVilleToDel);
+			request.setAttribute("nom", ville.getNomCommune());
+			request.setAttribute("cc", ville.getCodeCommuneInsee());
+			request.setAttribute("cp", ville.getCodePostal());
+			request.setAttribute("lat", ville.getLatitude());
+			request.setAttribute("lon", ville.getLongitude());
+			request.setAttribute("libelle", ville.getLibelleAcheminement());
+			request.setAttribute("ligne", ville.getLigne5());
+			
+			
+		}
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/modifierVille.jsp").forward(request, response);
 	}
 
@@ -36,18 +58,20 @@ public class ModifierVille extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String villeToDel = (String)request.getSession().getAttribute("ChangedVille");
 		String nom = request.getParameter("nom");
-		String codeCommune = request.getParameter("codeCommune");
-		String codePostal = request.getParameter("codePostal");
+		String cc = request.getParameter("cc");
+		String cp = request.getParameter("cp");
+		String lat = request.getParameter("lat");
+		String lon = request.getParameter("lon");
 		String libelle = request.getParameter("libelle");
-		String latitude = request.getParameter("latitude");
-		String longitude = request.getParameter("longitude");
-		String ligne5 = request.getParameter("ligne5");
+		String ligne = request.getParameter("ligne");
+
+	
 		
-		VilleDaoImpl villeDaoImpl = new VilleDaoImpl();
-		villeDaoImpl.modifierVille(nom, codeCommune, codePostal, ligne5, libelle, longitude, latitude);
-		
-		doGet(request, response);	
+		System.out.println("QJNFJDGNSGUS9DHGUSHU : *-----" + villeToDel+ "-------" );
+		villeDaoImpl.modifierVille(nom, cc, cp, ligne, libelle,lon, lat);
+		doGet(request, response);
 	}
 
 

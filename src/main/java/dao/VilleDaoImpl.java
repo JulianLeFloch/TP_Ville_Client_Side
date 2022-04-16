@@ -2,8 +2,10 @@ package dao;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
@@ -83,6 +85,26 @@ public class VilleDaoImpl implements VilleDao {
 	}
 
 	@Override
+	public Ville VilleAvecCode(String codeVille) {
+		BuilderObject builder = new BuilderObject();
+		JSONArray json;
+		ArrayList<Ville> listeVilles = null;
+		
+		System.out.println("justeAvantLaLigne61 : valeur =     -"+codeVille+"-");
+		try {
+			json = builder.readJsonFromUrl("http://localhost:8181/Ville?codeCommuneInsee=" + codeVille);
+			ObjectMapper mapper = new ObjectMapper();
+			listeVilles = mapper.readValue(json.toString(), new TypeReference<ArrayList<Ville>>() {
+			});
+		} catch (JSONException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return listeVilles.get(0);
+	}
+	
+	@Override
 	public void modifierVille(String nom, String codeCommune, String codePostal, String ligne5, String libelle,
 			String longitude, String latitude) throws UnsupportedEncodingException {
 		try {
@@ -114,6 +136,27 @@ public class VilleDaoImpl implements VilleDao {
 			  } catch (IOException e) {
 			   e.printStackTrace();
 			  }
-		
+	}
+	
+	@Override
+	public void SupprimerVille(String code) {
+		try {
+			URL url = new URL("http://localhost:8181/Ville_Enlever?codeCommuneInsee="+code);
+			HttpURLConnection httpUrlConnection = (HttpURLConnection) url.openConnection();
+			httpUrlConnection.setRequestMethod("DELETE");
+			httpUrlConnection.setRequestProperty("Accept", "application/json");
+
+			if (httpUrlConnection.getResponseCode() != 200) {
+				throw new RuntimeException("Failed : HTTP error code : " + httpUrlConnection.getResponseCode());
+			}
+
+			System.out.println("Output from Serveur ... /n");
+			httpUrlConnection.disconnect();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }

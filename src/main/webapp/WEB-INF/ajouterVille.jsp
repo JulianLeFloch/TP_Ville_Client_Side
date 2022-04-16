@@ -24,7 +24,7 @@ footer {
               <div class="container">
               <p class="Title has-text-centered" style="font-size: 24px">
 				<strong>Ajouter une ville dans la base de données :</strong>
-			</p>
+			  </p>
                 <div class="columns is-5-tablet is-4-desktop is-3-widescreen">
                     <div class="column">
                         <form class="box" method="post" action="ajouterVille">
