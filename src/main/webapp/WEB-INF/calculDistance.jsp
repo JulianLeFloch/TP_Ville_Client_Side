@@ -39,7 +39,7 @@ footer {
 					<div class="columns is-mobile is-centered">
 						<div class="column is-half">
 
-							<div class="select is-normal is-rounded is-info">
+							<div class="select is-small is-rounded is-info">
 								<select name="pointA" id="pointA">
 									<option value="" disabled selected hidden>Ville n°1</option>
 									<c:forEach items="${ villes }" var="current" varStatus="status">
@@ -47,7 +47,8 @@ footer {
 									</c:forEach>
 								</select>
 							</div>
-							<div class="select is-normal is-rounded is-info">
+						
+							<div class="select is-small is-rounded is-info">
 								<select name="pointB" id="pointB">
 									<option value="" disabled selected hidden>Ville n°2</option>
 									<c:forEach items="${ villes }" var="current" varStatus="status">
