@@ -65,7 +65,7 @@ public class DistanceDeuxVilles extends HttpServlet {
 		}
 		
 		CalculDistance distanceGestionner = new CalculDistance();
-		double distance = distanceGestionner.get_distance_m(villeA.getLatitude(), villeA.getLongitude(), villeB.getLatitude(), villeB.getLongitude()) / 1000;
+		double distance = distanceGestionner.Calcul(villeA.getLatitude(), villeA.getLongitude(), villeB.getLatitude(), villeB.getLongitude()) / 1000;
 		DecimalFormat format = new DecimalFormat();
 		format.setMaximumFractionDigits(1);
 		request.setAttribute("distance", format.format(distance));
