@@ -76,6 +76,7 @@ public class VilleDaoImpl implements VilleDao {
 		BuilderObject builder = new BuilderObject();
 		JSONArray json;
 		ArrayList<Ville> listeVilles = null;
+		
 		try {
 			json = builder.readJsonFromUrl("http://localhost:8181/Ville?codeCommuneInsee=" + codeVille);
 			ObjectMapper mapper = new ObjectMapper();
@@ -102,14 +103,23 @@ public class VilleDaoImpl implements VilleDao {
 			   		+ "	\"longitude\": \""+longitude+"\",\n"
 			   		+ "	\"latitude\": \""+latitude+"\"\n"
 			   		+ "	}";
+			   System.out.println(requestBody.toString());
 			   StringEntity stringEntity = new StringEntity(requestBody);
 			   HttpPut httpPut = new HttpPut();
 			   httpPut.setURI(new URI("http://localhost:8181/Ville_Modifier"));
 			   httpPut.addHeader("Content-type", "application/json");
 			   httpPut.setEntity(stringEntity);
-			  } catch (URISyntaxException | UnsupportedEncodingException e) {
+			   CloseableHttpResponse httpResponse = httpClient.execute(httpPut);
+			   System.out.println("Status Code - " + httpResponse.getStatusLine().toString());
+			  } catch (URISyntaxException e) {
 			   e.printStackTrace();
-			  } 
+			  } catch (UnsupportedEncodingException e) {
+			   e.printStackTrace();
+			  } catch (ClientProtocolException e) {
+			   e.printStackTrace();
+			  } catch (IOException e) {
+			   e.printStackTrace();
+			  }
 	}
 	
 	@Override
@@ -123,6 +133,8 @@ public class VilleDaoImpl implements VilleDao {
 			if (httpUrlConnection.getResponseCode() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : " + httpUrlConnection.getResponseCode());
 			}
+
+			System.out.println("Output from Serveur ... /n");
 			httpUrlConnection.disconnect();
 
 		} catch (IOException e) {
